@@ -72,12 +72,15 @@ if (avgD >= 100 && avgD > avgK) {
     console.log("No team wins the trophy!");
 }
 // Coding Challenge #4
+console.log("Coding Challenge #4");
 // 1.
 const bill = 275;
 const tip = bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
 //   2.
 console.log(`The bill was ${bill}, the tip was ${tip}, and the total value ${bill+tip}`);
+
 // Coding Challenge #5
+console.log("Coding Challenge #5");
 var scoreD = [44, 23, 71];
 var scoreK = [65, 54, 49];
 var sumD2 = scoreD.reduce(function(total, curr) {
