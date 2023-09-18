@@ -176,4 +176,114 @@ if (calcBMI(Mark.mass, Mark.height) > calcBMI(John.mass, John.height)) {
 } else {
     console.log(`Both ${Mark.fullName} and ${John.fullName} have the same BMI (${Mark.calcBMI()})!`);
 }   
+/*Coding Challenge #8
+Let's improve Steven's tip calculator even more, this time using loops!
+Your tasks:
+1. Create an array 'bills' containing all 10 test bill values
+2. Create empty arrays for the tips and the totals ('tips' and 'totals')
+3. Use the 'calcTip' function we wrote before (no need to repeat) to calculate
+tips and total values (bill + tip) for every bill value in the bills array. Use a for
+loop to perform the 10 calculations!
+Test data: 22, 295, 176, 440, 37, 105, 10, 1100, 86 and 52
+Hints: Call ‘calcTip ‘in the loop and use the push method to add values to the
+tips and totals arrays 
+Bonus:
+4. Bonus: Write a function 'calcAverage' which takes an array called 'arr' as
+an argument. This function calculates the average of all numbers in the given
+array. This is a difficult challenge (we haven't done this before)! Here is how to
+solve it:
+4.1. First, you will need to add up all values in the array. To do the addition,
+start by creating a variable 'sum' that starts at 0. Then loop over the
+array using a for loop. In each iteration, add the current value to the
+'sum' variable. This way, by the end of the loop, you have all values
+added together
+4.2. To calculate the average, divide the sum you calculated before by the
+length of the array (because that's the number of elements)
+4.3. Call the function with the 'totals' array
+*/
+//1.
+console.log("Coding Challenge #8");
+var bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+console.log(bills);
+//2.
+var tips = [];
+var totals = [];
+//3.    
+function calcTip(bill) {
+    return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+}   
+for (var i = 0; i < bills.length; i++) {
+    tips.push(calcTip(bills[i]));
+    totals.push(bills[i] + tips[i]);
+}
+console.log(tips);
+console.log(totals);    
+//4.    Trung bình bill
+function calcAverage(arr) {
+    var sum = 0;
+    for (var i = 0; i < arr.length; i++) {
+        // sum = sum + arr[i];
+        sum += arr[i];
+    }
+    return sum / arr.length;
+}
+console.log(calcAverage([2, 3, 7]));
+console.log(calcAverage(totals));
+console.log(calcAverage(tips));
+/*Coding Challenge #9
+Given an array of forecasted maximum temperatures, the thermometer displays a
+string with the given temperatures. Example: [17, 21, 23] will print "... 17oC in 1
+days ... 21oC in 2 days ... 23oC in 3 days ..."
+Your tasks:
+1. Create a function 'printForecast' which takes in an array 'arr' and logs a
+string like the above to the console. Try it with both test datasets.
+2. Use the problem-solving framework: Understand the problem and break it up
+into sub-problems!
+Test data:
+§ Data 1: [17, 21, 23]
+§ Data 2: [12, 5, -5, 0, 4]*/
+//1.
+console.log("Coding Challenge #9");
+function printForecast(arr) {
+    var str = "";
+    for (var i = 0; i < arr.length; i++) {
+        str += `... ${arr[i]}oC in ${i+1} days `;
+    }
+    console.log(str);
+}
+printForecast([17, 21, 23]);
+printForecast([12, 5, -5, 0, 4]);
+/*JavaScript in the Browser: DOM and Events
+Coding Challenge #1
+Implement a game rest functionality, so that the player can make a new guess!
+Your tasks:
+1. Select the element with the 'again' class and attach a click event handler
+2. In the handler function, restore initial values of the 'score' and
+'secretNumber' variables
+3. Restore the initial conditions of the message, number, score and guess input
+fields
+4. Also restore the original background color (#222) and number width (15rem)
+*/
+//1.
+console.log("Coding Challenge #1");
+var score = 20;
+var secretNumber = Math.trunc(Math.random() * 20) + 1;
+var highScore = 0;
+console.log(secretNumber);
+//2.
+document.querySelector(".again").addEventListener("click", function() {
+    score = 20;
+    secretNumber = Math.trunc(Math.random() * 20) + 1;
+    console.log(secretNumber);
+    document.querySelector(".message").textContent = "Start guessing...";
+    document.querySelector(".score").textContent = score;
+    document.querySelector(".number").textContent = "?";
+    document.querySelector(".guess").value = "";
+    document.querySelector("body").style.backgroundColor = "#222";
+    document.querySelector(".number").style.width = "15rem";
+});
+
+
+
+
 
